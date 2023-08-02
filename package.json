@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "prisma": "4.8.0",
     "@prisma/client": "^4.16.2",
     "axios": "^1.4.0",
     "cookies-next": "^2.1.2",

@@ -11,7 +11,7 @@ export default function Home() {
     event.preventDefault();
 
     try {
-      const response = await axios.post(
+      await axios.post(
         "api/auth/login",
         {
           username,

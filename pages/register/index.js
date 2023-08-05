@@ -45,7 +45,7 @@ export default function Home() {
         },
       });
 
-      window.location.href = "/login";
+      window.location.href = "/";
     } catch (err) {
       if (err.response.status === 400) {
         alert("Duplicate email found.");
@@ -348,7 +348,7 @@ export default function Home() {
           <div className="form-link">
             <span>
               Already have an account?
-              <Link className="link login-link" href="/login">
+              <Link className="link login-link" href="/">
                 Login
               </Link>
             </span>

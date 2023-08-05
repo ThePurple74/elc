@@ -8,26 +8,26 @@ export default function Home({ data }) {
     event.preventDefault();
 
     try {
-       await axios.put('api/users/profile', formData, {
+      await axios.put("api/users/profile", formData, {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
-          withCredentials: true
+          withCredentials: true,
         },
       });
 
-      alert('User data updated!');
+      alert("User data updated!");
 
       window.location.reload();
-  } catch(err) {
-      if(err.response.status === 400) {
-        alert('Input error');
-      } else if(err.response.status === 401) {
-        alert('Authentication error');
-      } else if(err.response.status === 500) {
-        alert('User update failed with unknown error.');
+    } catch (err) {
+      if (err.response.status === 400) {
+        alert("Input error");
+      } else if (err.response.status === 401) {
+        alert("Authentication error");
+      } else if (err.response.status === 500) {
+        alert("User update failed with unknown error.");
       }
     }
-  }
+  };
 
   return (
     <section
@@ -40,10 +40,13 @@ export default function Home({ data }) {
     >
       <div className="form signup">
         <div className="form-content">
+          <header>My Profile</header>
           <form onSubmit={handleUserUpdate}>
             <div className="field input-field">
+              <label htmlFor="email">Email:</label>
               <input
                 type="email"
+                name="email"
                 className="input"
                 placeholder="Email"
                 value={formData.email}
@@ -58,8 +61,10 @@ export default function Home({ data }) {
             </div>
 
             <div className="field input-field">
+              <label htmlFor="phoneNumber">phoneNumber:</label>
               <input
                 type="text"
+                name="phoneNumber"
                 placeholder="Your Phone Number"
                 className="input"
                 maxLength="13"
@@ -75,6 +80,7 @@ export default function Home({ data }) {
             </div>
 
             <div className="field input-field">
+              <label htmlFor="giardianName">Guardian&apos;s Name:</label>
               <input
                 type="text"
                 className="input"
@@ -93,6 +99,7 @@ export default function Home({ data }) {
             </div>
 
             <div className="field input-field">
+              <label htmlFor="guardianContact">Guardian&apos;s Contact:</label>
               <input
                 type="text"
                 className="input"
@@ -111,8 +118,10 @@ export default function Home({ data }) {
             </div>
 
             <div className="field input-field">
+              <label htmlFor="firstName">First Name:</label>
               <input
                 type="text"
+                name="firstName"
                 className="input"
                 placeholder="First Name"
                 value={formData.firstName}
@@ -127,8 +136,10 @@ export default function Home({ data }) {
             </div>
 
             <div className="field input-field">
+              <label htmlFor="lastName">Last Name:</label>
               <input
-                type="name"
+                type="text"
+                name="lastName"
                 className="input"
                 placeholder="Last Name"
                 value={formData.lastName}
@@ -143,9 +154,11 @@ export default function Home({ data }) {
             </div>
 
             <div className="field input-field">
+              <label htmlFor="disease">Disease:</label>
               <input
                 className="input"
-                type="disease"
+                name="disease"
+                type="text"
                 placeholder="Name of Disease"
                 value={formData.disease}
                 onChange={(event) => {
@@ -159,8 +172,10 @@ export default function Home({ data }) {
             </div>
 
             <div className="field input-field">
+              <label htmlFor="firstAid">First Aid:</label>
               <input
                 className="input"
+                name="firstAid"
                 type="text"
                 placeholder="How to give first aid when emergency:"
                 value={formData.firstAid}
@@ -174,8 +189,10 @@ export default function Home({ data }) {
             </div>
 
             <div className="field input-field">
+              <label htmlFor="doctorName">Doctor&apos;s Name:</label>
               <input
                 className="input"
+                name="doctorName"
                 type="text"
                 placeholder="Doctor's Name"
                 value={formData.doctorName}
@@ -190,6 +207,7 @@ export default function Home({ data }) {
             </div>
 
             <div className="field input-field">
+              <label htmlFor="doctorContact">Doctor&apos;s Phone Number:</label>
               <input
                 type="text"
                 className="input"
@@ -207,11 +225,12 @@ export default function Home({ data }) {
             </div>
 
             <div className="field input-field">
+              <label htmlFor="gender">Gender:</label>
               <select
                 name="gender"
                 style={{
                   color: "#8b8b8b",
-                  height: "100%",
+                  height: "50px",
                   width: "100%",
                   outline: "none",
                   padding: "0 15px",
@@ -241,6 +260,7 @@ export default function Home({ data }) {
             </div>
 
             <div className="field input-field">
+              <label htmlFor="address">Address</label>
               <input
                 type="text"
                 className="address"
@@ -258,7 +278,6 @@ export default function Home({ data }) {
               <br />
             </div>
 
-
             <div className="field button-field" style={{ marginTop: "40px" }}>
               <input type="submit" value="Save  " />
             </div>
@@ -272,7 +291,7 @@ export default function Home({ data }) {
 export async function getServerSideProps(context) {
   try {
     const response = await axios.get(
-      `${process.env.API_BASE_URL}/api/users/profile`,
+      `${process.env.BASE_URL}/api/users/profile`,
       {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",

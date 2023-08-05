@@ -61,12 +61,12 @@ export async function getServerSideProps(context) {
   const id = context.params.id;
 
   try {
-    const response = await axios.get(
-      `${process.env.API_BASE_URL}/api/users/${id}`
-    );
+    const response = await axios.get(`${process.env.BASE_URL}/api/users/${id}`);
 
     return { props: { data: response.data } };
   } catch (err) {
-    return { props: { data: null } };
+    return {
+      redirect: { destination: "/" },
+    };
   }
 }

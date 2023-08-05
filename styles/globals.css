@@ -44,7 +44,6 @@ form {
 }
 .form .field {
   position: relative;
-  height: 50px;
   width: 100%;
   margin-top: 20px;
   border-radius: 6px;
@@ -60,9 +59,14 @@ form {
   border-radius: 6px;
 }
 .field input {
+  height: 50px;
   outline: none;
   padding: 0 15px;
   border: 1px solid#CACACA;
+}
+.field label {
+  margin-left: 5px;
+  font-weight: 500;
 }
 .field input:focus {
   border-bottom-width: 2px;

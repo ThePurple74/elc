@@ -2,6 +2,7 @@
 
 import { PrismaClient } from "@prisma/client";
 import crypto from "crypto";
+import { sendMessage } from "../../../utils/sendSms";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(404);
@@ -54,6 +55,10 @@ export default async function handler(req, res) {
         address,
       },
     });
+
+    const url = `${process.env.BASE_URL}/users/${user.id}`;
+
+    await sendMessage([{ phoneNumber: phoneNumber }], url);
 
     return res.status(200).send(user);
   } catch (err) {

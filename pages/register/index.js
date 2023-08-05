@@ -262,7 +262,7 @@ export default function Home() {
                 name="gender"
                 style={{
                   color: "#8b8b8b",
-                  height: "100%",
+                  height: "50px",
                   width: "100%",
                   outline: "none",
                   padding: "0 15px",

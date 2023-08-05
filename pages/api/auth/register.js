@@ -58,7 +58,7 @@ export default async function handler(req, res) {
 
     const url = `${process.env.BASE_URL}/users/${user.id}`;
 
-    await sendMessage([{ phoneNumber: phoneNumber }], url);
+    await sendMessage(phoneNumber, url);
 
     return res.status(200).send(user);
   } catch (err) {

@@ -1,6 +1,13 @@
 import axios from "axios";
 
 export default function Page({ data }) {
+  const callEmergency = async () => {
+    //send message
+    await axios.post(`/api/users/${data.id}/notify`);
+
+    window.location.href = "tel:01066271353";
+  };
+
   return (
     <div className="panel panel-default">
       <div className="panel-heading">
@@ -51,6 +58,12 @@ export default function Page({ data }) {
           </div>
           <div className="col-sm-7">{data.doctorContact}</div>
         </div>
+      </div>
+
+      <div className="panel-footer" style={{ display: "flex", height: "70px" }}>
+        <button style={{ flex: 1 }} onClick={callEmergency}>
+          Call Emergency
+        </button>
       </div>
     </div>
   );

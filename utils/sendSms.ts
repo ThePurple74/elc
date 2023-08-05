@@ -2,7 +2,7 @@ import axios from "axios";
 import { toDataURL, toFile } from "qrcode";
 import { createSignature } from "./createSignature";
 
-export async function sendMessage(contacts, url) {
+export async function sendMessage(contacts, message) {
   const date = Date.now().toString();
   const serviceId = process.env.NCP_SMS_SERVICE_ID;
   const accessKey = process.env.NCP_ACCESS_KEY;
@@ -15,10 +15,10 @@ export async function sendMessage(contacts, url) {
       type: "SMS",
       countryCode: "82",
       from: process.env.NCP_SENDER_NUMBER,
-      content: url,
+      content: message,
       messages: contacts.map((el) => ({
-        to: el.phoneNumber,
-        content: url,
+        to: el,
+        content: message,
       })),
     },
     {

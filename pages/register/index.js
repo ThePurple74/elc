@@ -28,14 +28,17 @@ export default function Home() {
 
     if (data.password !== data.confirmPassword) {
       alert("Confirm password does not match with password.");
+      return;
     }
 
     if (!data.gender) {
       alert("You must choose gender.");
+      return;
     }
 
     if (!data.agree) {
       alert("You must agree to the terms and conditions.");
+      return;
     }
 
     try {

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toDataURL } from "qrcode";
 import { useState } from "react";
 
 export default function Home({ data }) {
@@ -282,6 +283,12 @@ export default function Home({ data }) {
               <input type="submit" value="Save  " />
             </div>
           </form>
+
+          <a download="qrcode.png" href={data.qrCodeUrl}>
+            <div className="field button-field" style={{ color: "black" }}>
+              <input type="button" value="QR 코드 다운로드하기" />
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -301,7 +308,10 @@ export async function getServerSideProps(context) {
       }
     );
 
-    return { props: { data: response.data } };
+    const url = `${process.env.BASE_URL}/users/${response.data.id}`;
+    const qrCodeUrl = await toDataURL(url);
+
+    return { props: { data: { ...response.data, qrCodeUrl } } };
   } catch (err) {
     return {
       redirect: {

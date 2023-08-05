@@ -12,7 +12,7 @@ export async function sendMessage(contacts, message) {
   await axios.post(
     `https://sens.apigw.ntruss.com${apiUrl}`,
     {
-      type: "SMS",
+      type: "LMS",
       countryCode: "82",
       from: process.env.NCP_SENDER_NUMBER,
       content: message,

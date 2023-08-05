@@ -31,7 +31,12 @@ export default async function handler(req, res) {
 
   res.setHeader(
     "Set-Cookie",
-    serialize("authorization", jwt, { path: "/", httpOnly: true, secure: true })
+    serialize("authorization", jwt, {
+      domain: ".elc.lol",
+      path: "/",
+      httpOnly: true,
+      secure: true,
+    })
   );
 
   return res.status(200).send(user);

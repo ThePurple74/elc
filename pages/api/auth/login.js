@@ -30,10 +30,7 @@ export default async function handler(req, res) {
   const jwt = sign({ id: user.id }, process.env.JWT_KEY);
 
   console.log(jwt);
-  res.setHeader(
-    "Set-Cookie",
-    serialize("authorization", jwt, { path: "/", secure: true })
-  );
+  res.setHeader("Set-Cookie", serialize("authorization", jwt, { path: "/" }));
 
   return res.status(200).send(user);
 }

@@ -333,7 +333,7 @@ export default function Home() {
                 type="radio"
                 name="agree"
                 value="disagree"
-                style={{ width: "30%", height: "30%" }}
+                style={{ width: "30%", height: "1em",left:"2%", top:"2%" }}
                 onChange={(event) =>
                   setData({
                     ...data,

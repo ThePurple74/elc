@@ -315,7 +315,7 @@ export default function Home() {
                 Do you agree with using your personal information for this
                 website?
               </p>
-              <label htmlFor="agree">Agree</label>
+              <label htmlFor="agree">동의</label>
               <input
                 type="radio"
                 name="agree"
@@ -328,7 +328,7 @@ export default function Home() {
                   })
                 }
               />
-              <label htmlFor="disagree">Disagree</label>
+              <label htmlFor="disagree">비동의</label>
               <input
                 type="radio"
                 name="agree"

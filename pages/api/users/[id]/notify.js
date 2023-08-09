@@ -16,7 +16,7 @@ export default async function handler(req, res) {
 
   const { guardianContact, doctorContact } = user;
 
-  await sendMessage([guardianContact, doctorContact], "Test Notification");
+  await sendMessage([guardianContact, doctorContact], "귀하의 환자/자녀가 현재 응급상태 입니다 - ELC");
 
   return res.status(200).end();
 }

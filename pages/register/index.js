@@ -350,9 +350,9 @@ export default function Home() {
 
           <div className="form-link">
             <span>
-              Already have an account?
+              이미 계정이 있으신가요?
               <Link className="link login-link" href="/">
-                Login
+                로그인
               </Link>
             </span>
           </div>

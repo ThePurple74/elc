@@ -58,7 +58,7 @@ export default async function handler(req, res) {
 
     await sendMessage(
       [phoneNumber],
-      "ELC에 오신걸 환영합니다. http://elc.lol 에서 로그인후 QR코드를 다운받아 배경화면으로 설정해보세요!"
+      "로그인후 QR코드를 다운받아 배경화면으로 설정해주세요."
     );
 
     return res.status(200).send(user);

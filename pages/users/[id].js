@@ -5,7 +5,7 @@ export default function Page({ data }) {
     //send message
     await axios.post(`/api/users/${data.id}/notify`);
 
-    window.location.href = "tel:01066271353";
+    window.location.href = "tel:119";
   };
 
   return (

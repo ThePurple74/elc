@@ -345,7 +345,7 @@ export default function Home() {
             </div>
 
             <div className="field button-field" style={{ marginTop: "40px" }}>
-              <input type="submit" value="Signup" />
+              <input type="submit" value="회원가입" />
             </div>
           </form>
 

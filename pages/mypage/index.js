@@ -41,15 +41,50 @@ export default function Home({ data }) {
     >
       <div className="form signup">
         <div className="form-content">
-          <header>My Profile</header>
+          <header>내 프로필</header>
           <form onSubmit={handleUserUpdate}>
             <div className="field input-field">
-              <label htmlFor="email">Email:</label>
+              <label htmlFor="firstName">이름:</label>
+              <input
+                type="text"
+                name="firstName"
+                className="input"
+                placeholder="이름"
+                value={formData.firstName}
+                onChange={(event) => {
+                  setFormData({
+                    ...formData,
+                    firstName: event.target.value,
+                  });
+                }}
+                required
+              />
+            </div>
+
+            <div className="field input-field">
+              <label htmlFor="lastName">성:</label>
+              <input
+                type="text"
+                name="lastName"
+                className="input"
+                placeholder="성"
+                value={formData.lastName}
+                onChange={(event) => {
+                  setFormData({
+                    ...formData,
+                    lastName: event.target.value,
+                  });
+                }}
+                required
+              />
+            </div>
+            <div className="field input-field">
+              <label htmlFor="email">이메일:</label>
               <input
                 type="email"
                 name="email"
                 className="input"
-                placeholder="Email"
+                placeholder="이메일"
                 value={formData.email}
                 onChange={(event) => {
                   setFormData({
@@ -62,11 +97,11 @@ export default function Home({ data }) {
             </div>
 
             <div className="field input-field">
-              <label htmlFor="phoneNumber">phoneNumber:</label>
+              <label htmlFor="phoneNumber">전화번호:</label>
               <input
                 type="text"
                 name="phoneNumber"
-                placeholder="Your Phone Number"
+                placeholder="전화번호"
                 className="input"
                 maxLength="13"
                 value={formData.phoneNumber}
@@ -81,12 +116,12 @@ export default function Home({ data }) {
             </div>
 
             <div className="field input-field">
-              <label htmlFor="giardianName">Guardian&apos;s Name:</label>
+              <label htmlFor="guardianName">보호자명:</label>
               <input
                 type="text"
                 className="input"
                 name="guardianName"
-                placeholder="Guardian's Name"
+                placeholder="보호자명"
                 maxLength="13"
                 value={formData.guardianName}
                 onChange={(event) => {
@@ -100,12 +135,12 @@ export default function Home({ data }) {
             </div>
 
             <div className="field input-field">
-              <label htmlFor="guardianContact">Guardian&apos;s Contact:</label>
+              <label htmlFor="guardianContact">보호자 연락처:</label>
               <input
                 type="text"
                 className="input"
                 name="guardianContact"
-                placeholder="Guardian's Contact"
+                placeholder="보호자 연락처"
                 maxLength="13"
                 value={formData.guardianContact}
                 onChange={(event) => {
@@ -118,49 +153,15 @@ export default function Home({ data }) {
               />
             </div>
 
-            <div className="field input-field">
-              <label htmlFor="firstName">First Name:</label>
-              <input
-                type="text"
-                name="firstName"
-                className="input"
-                placeholder="First Name"
-                value={formData.firstName}
-                onChange={(event) => {
-                  setFormData({
-                    ...formData,
-                    firstName: event.target.value,
-                  });
-                }}
-                required
-              />
-            </div>
+            
 
             <div className="field input-field">
-              <label htmlFor="lastName">Last Name:</label>
-              <input
-                type="text"
-                name="lastName"
-                className="input"
-                placeholder="Last Name"
-                value={formData.lastName}
-                onChange={(event) => {
-                  setFormData({
-                    ...formData,
-                    lastName: event.target.value,
-                  });
-                }}
-                required
-              />
-            </div>
-
-            <div className="field input-field">
-              <label htmlFor="disease">Disease:</label>
+              <label htmlFor="disease">병명:</label>
               <input
                 className="input"
                 name="disease"
                 type="text"
-                placeholder="Name of Disease"
+                placeholder="병명"
                 value={formData.disease}
                 onChange={(event) => {
                   setFormData({
@@ -173,12 +174,12 @@ export default function Home({ data }) {
             </div>
 
             <div className="field input-field">
-              <label htmlFor="firstAid">First Aid:</label>
+              <label htmlFor="firstAid">응급시 조치 방법:</label>
               <input
                 className="input"
                 name="firstAid"
                 type="text"
-                placeholder="How to give first aid when emergency:"
+                placeholder="응급시 조치 방법:"
                 value={formData.firstAid}
                 onChange={(event) => {
                   setFormData({
@@ -190,12 +191,12 @@ export default function Home({ data }) {
             </div>
 
             <div className="field input-field">
-              <label htmlFor="doctorName">Doctor&apos;s Name:</label>
+              <label htmlFor="doctorName">주치의명:</label>
               <input
                 className="input"
                 name="doctorName"
                 type="text"
-                placeholder="Doctor's Name"
+                placeholder="주치의명"
                 value={formData.doctorName}
                 onChange={(event) => {
                   setFormData({
@@ -208,11 +209,11 @@ export default function Home({ data }) {
             </div>
 
             <div className="field input-field">
-              <label htmlFor="doctorContact">Doctor&apos;s Phone Number:</label>
+              <label htmlFor="doctorContact">주치의 연락처:</label>
               <input
                 type="text"
                 className="input"
-                placeholder="Doctor's Phone Number"
+                placeholder="주치의 연락처"
                 value={formData.doctorContact}
                 maxLength="13"
                 onChange={(event) => {
@@ -226,7 +227,7 @@ export default function Home({ data }) {
             </div>
 
             <div className="field input-field">
-              <label htmlFor="gender">Gender:</label>
+              <label htmlFor="gender">성별:</label>
               <select
                 name="gender"
                 style={{
@@ -249,24 +250,24 @@ export default function Home({ data }) {
                 }}
                 required
               >
-                <option value="">Gender (Must Select One)</option>
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-                <option value="non-binary">Non-Binary</option>
-                <option value="other">Other</option>
+                <option value="">성별 (필수 선택)</option>
+                <option value="female">여성</option>
+                <option value="male">남성</option>
+                <option value="non-binary">양성</option>
+                <option value="other">그 외</option>
                 <option value="Prefer not to answer">
-                  Perfer not to Answer
+                  대답하고 싶지 않습니다
                 </option>
               </select>
             </div>
 
             <div className="field input-field">
-              <label htmlFor="address">Address</label>
+              <label htmlFor="address">주소:</label>
               <input
                 type="text"
                 className="address"
                 name="address"
-                placeholder="address"
+                placeholder="주소"
                 value={formData.address}
                 onChange={(event) => {
                   setFormData({
@@ -280,7 +281,7 @@ export default function Home({ data }) {
             </div>
 
             <div className="field button-field" style={{ marginTop: "40px" }}>
-              <input type="submit" value="Save  " />
+              <input type="submit" value="저장" />
             </div>
           </form>
 

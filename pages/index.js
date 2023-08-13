@@ -39,13 +39,13 @@ export default function Home() {
   return (
     <div className="form login">
       <div className="form-content">
-        <header>Login for ELC!</header>
+        <header>ELC에 로그인하세요!</header>
         <form onSubmit={formLogin}>
           <div className="field input-field">
             <input
               className="input"
               type="email"
-              placeholder="Email"
+              placeholder="이메일"
               value={username}
               onChange={(event) => setUsername(event.target.value)}
             />
@@ -54,7 +54,7 @@ export default function Home() {
           <div className="field input-field">
             <input
               type={showPw ? "text" : "password"}
-              placeholder="Password"
+              placeholder="비밀번호"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
@@ -67,18 +67,18 @@ export default function Home() {
           </div>
 
           <div className="form-link">
-            <Link href="/reset-password">Forgot password?</Link>
+            <Link href="/reset-password">비밀번호를 잊어버렸습니다.</Link>
           </div>
 
           <div className="field button-field">
-            <input type="submit" value="Login" />
+            <input type="submit" value="로그인" />
           </div>
         </form>
 
         <div className="form-link">
           <span>
             Dont have an account?
-            <Link href="/register">Signup</Link>
+            <Link href="/register">회원가입</Link>
           </span>
         </div>
       </div>

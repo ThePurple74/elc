@@ -77,7 +77,7 @@ export default function Home() {
 
         <div className="form-link">
           <span>
-            Dont have an account?
+            계정이 없으십니까?
             <Link href="/register">회원가입</Link>
           </span>
         </div>

@@ -69,13 +69,13 @@ export default function Home() {
     >
       <div className="form signup">
         <div className="form-content">
-          <header>Signup for ELC!</header>
+          <header>ELC에 회원가입하세요!</header>
           <form onSubmit={handleSignup}>
             <div className="field input-field">
               <input
                 type="email"
                 className="input"
-                placeholder="Email"
+                placeholder="이메일"
                 onChange={(event) => {
                   setData({
                     ...data,
@@ -89,7 +89,7 @@ export default function Home() {
             <div className="field input-field">
               <input
                 type="password"
-                placeholder="Create password"
+                placeholder="비밀번호"
                 onChange={(event) => {
                   setData({
                     ...data,
@@ -103,7 +103,7 @@ export default function Home() {
             <div className="field input-field">
               <input
                 type={showPw ? "text" : "password"}
-                placeholder="Confirm password"
+                placeholder="비밀번호 확인"
                 onChange={(event) => {
                   setData({
                     ...data,
@@ -123,7 +123,37 @@ export default function Home() {
             <div className="field input-field">
               <input
                 type="text"
-                placeholder="Your Phone Number"
+                className="input"
+                placeholder="이름"
+                onChange={(event) => {
+                  setData({
+                    ...data,
+                    firstName: event.target.value,
+                  });
+                }}
+                required
+              />
+            </div>
+
+            <div className="field input-field">
+              <input
+                type="name"
+                className="input"
+                placeholder="성"
+                onChange={(event) => {
+                  setData({
+                    ...data,
+                    lastName: event.target.value,
+                  });
+                }}
+                required
+              />
+            </div>
+
+            <div className="field input-field">
+              <input
+                type="text"
+                placeholder="전화번호"
                 className="input"
                 maxLength="13"
                 onChange={(event) => {
@@ -140,7 +170,7 @@ export default function Home() {
               <input
                 type="text"
                 className="input"
-                name="guardianName"
+                name="보호자명"
                 placeholder="Guardian's Name"
                 maxLength="13"
                 onChange={(event) => {
@@ -158,7 +188,7 @@ export default function Home() {
                 type="text"
                 className="input"
                 name="guardianContact"
-                placeholder="Guardian's Contact"
+                placeholder="보호자 연락처"
                 maxLength="13"
                 onChange={(event) => {
                   setData({
@@ -170,41 +200,13 @@ export default function Home() {
               />
             </div>
 
-            <div className="field input-field">
-              <input
-                type="text"
-                className="input"
-                placeholder="First Name"
-                onChange={(event) => {
-                  setData({
-                    ...data,
-                    firstName: event.target.value,
-                  });
-                }}
-                required
-              />
-            </div>
 
-            <div className="field input-field">
-              <input
-                type="name"
-                className="input"
-                placeholder="Last Name"
-                onChange={(event) => {
-                  setData({
-                    ...data,
-                    lastName: event.target.value,
-                  });
-                }}
-                required
-              />
-            </div>
 
             <div className="field input-field">
               <input
                 className="input"
                 type="disease"
-                placeholder="Name of Disease"
+                placeholder="병명"
                 onChange={(event) => {
                   setData({
                     ...data,
@@ -219,7 +221,7 @@ export default function Home() {
               <input
                 className="input"
                 type="text"
-                placeholder="How to give first aid when emergency:"
+                placeholder="응급시 조치 방법"
                 onChange={(event) => {
                   setData({
                     ...data,
@@ -233,7 +235,7 @@ export default function Home() {
               <input
                 className="input"
                 type="text"
-                placeholder="Doctor's Name"
+                placeholder="주치의명"
                 onChange={(event) => {
                   setData({
                     ...data,
@@ -248,7 +250,7 @@ export default function Home() {
               <input
                 type="text"
                 className="input"
-                placeholder="Doctor's Phone Number"
+                placeholder="주치의 연락처 (병원 연락처)"
                 maxLength="13"
                 onChange={(event) => {
                   setData({
@@ -282,13 +284,13 @@ export default function Home() {
                 }}
                 required
               >
-                <option value="">Gender (Must Select One)</option>
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-                <option value="non-binary">Non-Binary</option>
-                <option value="other">Other</option>
+                <option value="">성별 (필수 선택)</option>
+                <option value="female">여성</option>
+                <option value="male">남성</option>
+                <option value="non-binary">양성</option>
+                <option value="other">그 외</option>
                 <option value="Prefer not to answer">
-                  Perfer not to Answer
+                  대답하고 싶지 않습니다
                 </option>
               </select>
             </div>
@@ -298,7 +300,7 @@ export default function Home() {
                 type="text"
                 className="address"
                 name="address"
-                placeholder="address"
+                placeholder="주소"
                 onChange={(event) => {
                   setData({
                     ...data,

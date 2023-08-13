@@ -27,17 +27,17 @@ export default function Home() {
     event.preventDefault();
 
     if (data.password !== data.confirmPassword) {
-      alert("Confirm password does not match with password.");
+      alert("입력하신 비밀번호가 서로 일치하지 않습니다.");
       return;
     }
 
     if (!data.gender) {
-      alert("You must choose gender.");
+      alert("성별을 선택해주십시오.");
       return;
     }
 
     if (!data.agree) {
-      alert("You must agree to the terms and conditions.");
+      alert("이용약관에 동의해주십시오.");
       return;
     }
 
@@ -170,8 +170,8 @@ export default function Home() {
               <input
                 type="text"
                 className="input"
-                name="보호자명"
-                placeholder="Guardian's Name"
+                name="guardianName"
+                placeholder="보호자명"
                 maxLength="13"
                 onChange={(event) => {
                   setData({
@@ -314,8 +314,7 @@ export default function Home() {
 
             <div className="field input-field">
               <p>
-                Do you agree with using your personal information for this
-                website?
+               귀하의 개인정보를 이 웹사이트에 사용하는 것을 동의하십니까?
               </p>
               <label htmlFor="agree">동의</label>
               <input

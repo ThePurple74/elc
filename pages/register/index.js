@@ -71,6 +71,36 @@ export default function Home() {
         <div className="form-content">
           <header>ELC에 회원가입하세요!</header>
           <form onSubmit={handleSignup}>
+
+            <div className="field input-field">
+              <input
+                type="text"
+                className="input"
+                placeholder="이름"
+                onChange={(event) => {
+                  setData({
+                    ...data,
+                    firstName: event.target.value,
+                  });
+                }}
+                required
+              />
+            </div>
+
+            <div className="field input-field">
+              <input
+                type="name"
+                className="input"
+                placeholder="성"
+                onChange={(event) => {
+                  setData({
+                    ...data,
+                    lastName: event.target.value,
+                  });
+                }}
+                required
+              />
+            </div>
             <div className="field input-field">
               <input
                 type="email"
@@ -120,35 +150,7 @@ export default function Home() {
               ></i>
             </div>
 
-            <div className="field input-field">
-              <input
-                type="text"
-                className="input"
-                placeholder="이름"
-                onChange={(event) => {
-                  setData({
-                    ...data,
-                    firstName: event.target.value,
-                  });
-                }}
-                required
-              />
-            </div>
-
-            <div className="field input-field">
-              <input
-                type="name"
-                className="input"
-                placeholder="성"
-                onChange={(event) => {
-                  setData({
-                    ...data,
-                    lastName: event.target.value,
-                  });
-                }}
-                required
-              />
-            </div>
+            
 
             <div className="field input-field">
               <input

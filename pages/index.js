@@ -29,9 +29,9 @@ export default function Home() {
       if (err.response.status === 200) {
         window.location.href = "/mypage";
       } else if (err.response.status === 400) {
-        alert("Email or password is wrong");
+        alert("이메일 또는 비밀번호가 잘못되었습니다.");
       } else {
-        alert("Unknown error occured.");
+        alert("알 수 없는 오류가 발생했습니다.");
       }
     }
   };
